@@ -1,21 +1,12 @@
-
-<html><head><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
+<!doctype html>
+<html lang="en">
+<head>
 	<meta charset="utf-8">
 	<meta name="apple-itunes-app" content="app-id=599384920">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tire Size Calculator</title>
 
-	
-	<script src="https://connect.facebook.net/en_US/sdk.js?hash=4ae4356de2ba1ae691a286ed1bb39184" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;appId=385205984962960&amp;version=v2.0"></script>
-	
-
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
 <style>
-@import url(http://fonts.googleapis.com/css?family=Raleway);
-
 html, body, #content {
 	margin: 0px;
 	height: 100%;
@@ -27,7 +18,7 @@ html, body, #content {
 	line-height: 1.4;
 }
 #splash {
-	height: 100%;
+	min-height: min(46rem, 100svh);
 	width: 100%;
 	display: table;
 	table-layout: fixed;
@@ -55,26 +46,9 @@ html, body, #content {
 	#screenshots img {
 		max-width: 200px;
 	}
-	#like-container {
-		position: absolute;
-		top: 100%;
-		right: 20px;
-		margin-top: -50px;
-	}
 }
-#chevron {
-	position: absolute;
-	left: 50%;
-	top: 100%;
-	margin-top: -2em;
-	color: #1b1b1f;
-	opacity: 0.5;
-	margin-left: -0.5em;
-}
-@media screen and (max-width: 700px) {
-	#chevron {
-		display: none;
-	}
+@media screen and (max-width: 699px) {
+	#splash { min-height: 0; padding-bottom: 1rem; }
 	#splash .iphone {
 		width: 192px;
 		height: 384px;
@@ -86,28 +60,49 @@ html, body, #content {
 	#screenshots img {
 		max-width: 100px;
 	}
-	#splash .appstore {
-		display: none;
-	}
 }
-img.appstore {
-	max-width: 120px;
+.appstore {
+	display: inline-block;
+	background: #1b1b1f;
+	color: #fff;
+	border-radius: 8px;
+	padding: 0.55rem 0.8rem;
 }
+.privacy-link {
+	display: inline-block;
+	padding: 0.5rem;
+}
+#privacy-policy {
+	box-sizing: border-box;
+	max-width: 600px;
+	width: 90%;
+	margin: 1rem auto 2rem;
+	padding: clamp(1rem, 4vw, 2rem);
+	text-align: left;
+	background: #fff;
+	border: 1px solid #cdcdd2;
+	border-radius: 12px;
+	overflow-wrap: anywhere;
+}
+#privacy-policy h2 { margin-top: 0; }
 .iphone {
-	background-image: url('http://app-stop.appspot.com/static/5s.png');
-	background-size: contain;
+	background: #1b1b1f;
+	border-radius: 18px;
+	overflow: hidden;
 	position: relative;
 	width: 720px;
 	height: 1440px;
 }
 .iphone img {
 	position: absolute;
-	top: 17.9%;
-	left: 14%;
-	width: 73%;
+	top: 4%;
+	left: 4%;
+	width: 92%;
+	height: 92%;
+	object-fit: contain;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Raleway", sans-serif;
+	font-family: sans-serif;
 	font-weight: normal;
 }
 #icon-row {
@@ -148,77 +143,54 @@ h1, h2, h3, h4, h5, h6 {
 #description {
 	white-space: pre-wrap;
 }
-#stars {
-	text-align: center;
-	font-style: italic;
-	font-size: small;
-}
-#stars span {
-	display: block;
-	font-size: 30px;
-	font-style: normal;
-}
-#attribution {
-	font-size: small;
-	padding: 2em;
-}
-#attribution a {
-	color: #1b1b1f;
-}
+#description { overflow-wrap: anywhere; }
+footer { padding: 1rem; }
 </style>
-
-
-<style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
-.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
-.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0px;margin:0px;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0px 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
-<body data-new-gr-c-s-check-loaded="14.1209.0" data-gr-ext-installed="">
-	<!-- begin Facebook SDK -->
-	<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=385205984962960&version=v2.0";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<!-- end Facebook SDK -->
-
-
-	
+</head>
+<body>
 <div id="content">
 
-
-<div id="chevron" class="fa fa-chevron-down"></div>
 <div id="splash">
 	<div id="left">
 		<h1>Tire Size Calculator</h1>
 		<p>Compare tire and wheel specs conveniently and get recommendations for tire and wheel upgrades.</p>
-		<a href="https://apps.apple.com/us/app/tire-size-calculator/id599384920?uo=4"><img class="appstore" src="http://app-stop.appspot.com/static/appstore.svg" alt="Download on the Apple App Store"></a>
+		<a class="appstore" href="https://apps.apple.com/us/app/tire-size-calculator/id599384920?uo=4">View on the App Store</a>
+		<p><a class="privacy-link" href="#privacy-policy">Privacy Policy</a></p>
 	</div>
 	<div id="right">
 		<div class="iphone">
-			<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/bb/3f/a8/bb3fa85c-c740-44a8-c38f-33e21bce57fa/mzl.ephkmhuy.png/392x696bb.png">
+			<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/bb/3f/a8/bb3fa85c-c740-44a8-c38f-33e21bce57fa/mzl.ephkmhuy.png/392x696bb.png" alt="Tire Size Calculator app preview">
 		</div>
 	</div>
 </div>
 
+<section id="privacy-policy" aria-labelledby="privacy-title">
+	<h2 id="privacy-title">Privacy Policy</h2>
+	<h3>Tire Size Calculator for iPhone and iPad</h3>
+	<p>Cheng Fan does not collect data through the Tire Size Calculator app.</p>
+	<p>Apple handles App Store purchases under its <a href="https://www.apple.com/legal/privacy/">Privacy Policy</a>.</p>
+	<h3>This website</h3>
+	<p>This site does not use advertising or analytics scripts. GitHub Pages hosts the site and logs visitors’ IP addresses for security, as described in its <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">hosting documentation</a>. App images load from Apple’s servers, which receive ordinary connection information such as your IP address when your browser requests them.</p>
+	<h3>Privacy questions</h3>
+	<p>Contact Cheng Fan at <a href="mailto:intofansoft@gmail.com">intofansoft@gmail.com</a>.</p>
+</section>
+
 <div id="icon-row">
 	<div id="icon-container">
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/83/7e/6c/837e6c9b-5dc9-0b95-bd65-9659438745aa/AppIcon-0-0-1x_U007emarketing-0-0-0-9-85-220.png/512x512bb.jpg">
+		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/83/7e/6c/837e6c9b-5dc9-0b95-bd65-9659438745aa/AppIcon-0-0-1x_U007emarketing-0-0-0-9-85-220.png/512x512bb.jpg" alt="">
 	</div>
 </div>
 
 <div id="screenshots">
-	
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/0b/87/f8/0b87f8b9-09ad-0de7-ef6d-43268fe7431b/mzl.bbacffer.png/392x696bb.png">
-	
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/c7/7a/65/c77a6520-7743-e3d2-cae1-fe28ab7647a2/mzl.xcygvwfw.png/392x696bb.png">
-	
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/53/63/5e/53635e9d-58c8-a666-abc3-b2137d7f977a/pr_source.png/392x696bb.png">
-	
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/8d/66/ef/8d66ef86-2102-ed2d-126b-5b03d071b81c/mzl.kjgvafyk.png/392x696bb.png">
-	
+
+		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/0b/87/f8/0b87f8b9-09ad-0de7-ef6d-43268fe7431b/mzl.bbacffer.png/392x696bb.png" alt="" loading="lazy">
+
+		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/c7/7a/65/c77a6520-7743-e3d2-cae1-fe28ab7647a2/mzl.xcygvwfw.png/392x696bb.png" alt="" loading="lazy">
+
+		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/53/63/5e/53635e9d-58c8-a666-abc3-b2137d7f977a/pr_source.png/392x696bb.png" alt="" loading="lazy">
+
+		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/8d/66/ef/8d66ef86-2102-ed2d-126b-5b03d071b81c/mzl.kjgvafyk.png/392x696bb.png" alt="" loading="lazy">
+
 </div>
 
 
@@ -231,8 +203,8 @@ Experienced car mod drivers know that a light weight tire+wheel package with goo
 
 This app helps you to choose upgrade tire and wheel safely and wisely, because Safety and Performance both matter!
 
-This is an universal app that works great and responsively on both iPhone/iPod Touch and iPad. 
-NO need to pay twice for the same app! 
+This is an universal app that works great and responsively on both iPhone/iPod Touch and iPad.
+NO need to pay twice for the same app!
 
 Tire Size Calculator is an app that gives you concise info and intuitive interactive ways to help you:
 
@@ -247,14 +219,14 @@ Detailed description:
 1. Get recommended upgrade/replacement tire sizes, with the following adjustable difference variables between new tire and old tire:
 
 • Rim diameter difference (-3" ~ +3")
-• Section width difference (-30 mm ~ +30mm) 
+• Section width difference (-30 mm ~ +30mm)
 • Tolerable tire circumference difference (-3% ~ +3%)
 
 You can conveniently choose one of the recommended tires to compare to the old tire by selecting the tire from the list.
 
 2. Calculate tire sizes, and compare tires with the following specs, in either Imperial or Metric units:
 
-• Section Width (145 mm ~ 395 mm) 
+• Section Width (145 mm ~ 395 mm)
 • Aspect Ratio (20 ~ 85)
 • Rim Diameter (10" ~ 30")
 • Load Index (60 ~125)
@@ -284,7 +256,7 @@ Tap the tire graph to toggle between the two modes.
 • Old Tire/Wheel Weights
 • New Tire/Wheel weights
 
-Colors of the specs table cells indicate the compatibility of the new tire in that spec: 
+Colors of the specs table cells indicate the compatibility of the new tire in that spec:
 
 • No color: compatible
 • Green: improved
@@ -292,269 +264,10 @@ Colors of the specs table cells indicate the compatibility of the new tire in th
 • Red: not compatible</p>
 
 <p>
-	<a href="https://apps.apple.com/us/app/tire-size-calculator/id599384920?uo=4"><img class="appstore" src="http://app-stop.appspot.com/static/appstore.svg" alt="Download on the Apple App Store"></a>
+	<a class="appstore" href="https://apps.apple.com/us/app/tire-size-calculator/id599384920?uo=4">View on the App Store</a>
 </p>
 
-<p>
-	</p><div id="like-container"><div class="fb-like fb_iframe_widget" data-href="https://app-stop.appspot.com/id/599384920" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=385205984962960&amp;container_width=0&amp;href=https%3A%2F%2Fapp-stop.appspot.com%2Fid%2F599384920&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true"><span style="vertical-align: bottom; width: 150px; height: 28px;"><iframe name="fab9fb90c549fc843" width="1000px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.0/plugins/like.php?action=like&amp;app_id=385205984962960&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df43c4f64842f22be5%26domain%3Dapp-stop.appspot.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fapp-stop.appspot.com%252Ff975d27afe339b436%26relation%3Dparent.parent&amp;container_width=0&amp;href=https%3A%2F%2Fapp-stop.appspot.com%2Fid%2F599384920&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true" style="border: none; visibility: visible; width: 150px; height: 28px;" class=""></iframe></span></div></div>
-	<script>
-	// dynamically create a Facebook like button for the current URL:
-	var like = document.createElement("div");
-	like.className = "fb-like";
-	like.setAttribute("data-href", location.href);
-	like.setAttribute("data-layout", "button_count");
-	like.setAttribute("data-action", "like");
-	like.setAttribute("data-show-faces", "true");
-	like.setAttribute("data-share", "true");
-	document.getElementById("like-container").appendChild(like);
-	</script>
-<p></p>
-
-<p id="copyright">© Cheng Fan </p>
-
-<p id="attribution">
-Landing page created automatically with <a href="http://app-stop.appspot.com">AppStop</a></p>
-
-
+<footer><p>© Cheng Fan</p></footer>
 </div>
-
-
-<button id="paste-helper-id" style="width: 0px; height: 0px; padding: 0px; margin: 0px; border: 0px; display: none;"></button><template id="auto-clicker-autofill-popup">
-  <style>
-    @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css);
-    @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500&subset=latin-ext);
-    #body {
-      background: white;
-      border-radius: 5px;
-      box-shadow: 0 30px 50px 0 rgb(44 49 59 / 20%);
-      overflow: hidden;
-      font-size: 14px;
-      font-family: 'Poppins', sans-serif;
-      min-width: 250px;
-      max-width: 400px;
-    }
-    .modal-dialog {
-      margin: auto;
-    }
-    .modal-content {
-      border: none;
-    }
-    /*Header*/
-    .modal-header {
-      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
-      padding-left: 0;
-      height: 47px;
-      background: rgba(112.520718, 44.062154, 249.437846, 0.1);
-      color: #fff;
-      border: none;
-    }
-    .modal-header button.btn {
-      color: #712cf9;
-      width: 1em;
-      height: 1em;
-      display: flex;
-      box-sizing: content-box;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      --bs-btn-close-opacity: 1;
-      --bs-btn-close-hover-opacity: 0.75;
-      --bs-btn-close-focus-shadow: 0 0 0 0.25em rgba(13, 110, 253, 0.25);
-      opacity: var(--bs-btn-close-opacity);
-    }
-    .modal-header button.btn svg {
-      width: inherit;
-      height: inherit;
-    }
-    .modal-header button.btn:focus {
-      box-shadow: var(--bs-btn-close-focus-shadow);
-    }
-    .modal-header button.btn:hover {
-      opacity: var(--bs-btn-close-hover-opacity);
-    }
-    .modal-header button.expand .bi-arrows-expand {
-      display: block !important;
-    }
-    .modal-header button.expand .bi-dash-lg {
-      display: none;
-    }
-    .modal-header .modal-title {
-      padding-left: 2em;
-      color: #712cf9;
-      position: relative;
-      font-size: 1em;
-    }
-    .modal-header .modal-title::before {
-      content: '';
-      position: absolute;
-      left: 0.75em;
-      top: calc(50% - 0.375em);
-      display: block;
-      width: 0.75em;
-      height: 0.75em;
-      border-radius: 50%;
-      background: red;
-      cursor: pointer;
-      box-shadow: 0 0 0 rgba(255, 0, 0, 0.4);
-      animation: pulse 2s infinite;
-    }
-    @-webkit-keyframes pulse {
-      0% {
-        -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
-      }
-      70% {
-        -webkit-box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-      }
-      100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-      }
-    }
-    @keyframes pulse {
-      0% {
-        -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
-      }
-      70% {
-        -moz-box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-      }
-      100% {
-        -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-      }
-    }
-    /*Body*/
-    .modal-body {
-      max-height: calc(100vh - 7em);
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 0.5em 0;
-    }
-    td div {
-      vertical-align: middle;
-      width: 180px;
-      line-height: 24px;
-    }
-    tr button {
-      visibility: hidden;
-    }
-    tr:hover button {
-      visibility: visible;
-    }
-    /*Footer*/
-    .modal-footer {
-      padding: 0;
-      --bs-bg-opacity: 1;
-      background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
-    }
-    .modal-footer a {
-      display: flex;
-      align-items: center;
-    }
-    .modal-footer a svg {
-      margin-right: 0.15em;
-    }
-    .modal-footer a:hover {
-      color: #712cf9 !important;
-    }
-  </style>
-  <div id="body" class="modal position-static d-block" data-bs-theme="light">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <header class="modal-header">
-          <h6 class="modal-title text-truncate">Auto Clicker - AutoFill</h6>
-          <div class="d-flex justify-content-center align-items-center">
-            <button type="button" class="btn ms-2" aria-label="collapse">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" style="display: none" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8ZM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2ZM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10Z"></path>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"></path>
-              </svg>
-            </button>
-            <button type="button" class="btn ms-2" data-bs-dismiss="modal" aria-label="Close">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
-              </svg>
-            </button>
-          </div>
-        </header>
-        <main class="modal-body" id="collapse-main">
-          <slot name="actions" hidden="">
-            <table class="table table-sm table-hover mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">Name/Element</th>
-                  <th scope="col">Value</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody class="table-group-divider"></tbody>
-            </table>
-          </slot>
-          <slot name="no-actions">
-            <div class="px-2">
-              <div class="card w-100">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary">Start filling form...</h5>
-                  <hr>
-                  <h6 class="card-subtitle mb-2 text-muted">If you have already filled form</h6>
-                  <button type="button" auto-generate-config="" class="btn btn-sm btn-outline-secondary">Already Filled ?</button>
-                </div>
-              </div>
-            </div>
-          </slot>
-        </main>
-        <footer class="modal-footer justify-content-center" id="collapse-footer">
-          <ul class="nav justify-content-between w-100">
-            <li class="nav-item">
-              <a href="https://getautoclicker.com/docs/4.x/getting-started" class="nav-link px-2 text-muted" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-richtext" viewBox="0 0 16 16">
-                  <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208zM5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"></path>
-                  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"></path>
-                </svg>
-                <span id="docs-text"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="https://discord.gg/ubMBeX3" class="nav-link px-2 text-muted" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
-                  <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"></path>
-                </svg>
-                <span id="chat-text"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="https://dev.getautoclicker.com/" class="nav-link px-2 text-muted" target="_blank" id="settings">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"></path>
-                </svg>
-                <span id="advance-text"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/sponsors/Dhruv-Techapps" class="nav-link px-2 text-muted" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-balloon-heart text-danger" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"></path>
-                </svg>
-                <span id="sponsor-text"></span>
-              </a>
-            </li>
-          </ul>
-        </footer>
-      </div>
-    </div>
-  </div>
-</template>
-<template id="auto-clicker-autofill-popup-tr">
-  <tr>
-    <td><div class="text-truncate"></div></td>
-    <td><div class="text-truncate"></div></td>
-    <td>
-      <button type="button" class="btn-close" data-bs-dismiss="tr" aria-label="Close"></button>
-    </td>
-  </tr>
-</template>
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body>
+</html>

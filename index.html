@@ -1,169 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="apple-itunes-app" content="app-id=599384920">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tire Size Calculator</title>
-
+<meta charset="utf-8">
+<meta name="apple-itunes-app" content="app-id=599384920">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Compare tire sizes for cars, light trucks, and motorcycles. Check speedometer impact, size alternatives, and the effect of changing wheel and tire weight.">
+<title>Tire Size Calculator</title>
 <style>
-html, body, #content {
-	margin: 0px;
-	height: 100%;
-	font-family: sans-serif;
-	font-weight: lighter;
-	color: #1b1b1f;
-	background-color: #f4f4f5;
-	text-align: center;
-	line-height: 1.4;
+:root { color-scheme: light; --ink: #171b22; --muted: #465368; --line: #dce2ea; --blue: #104ca1; --paper: #fff; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: #f2f5f9; font: 1rem/1.55 system-ui, sans-serif; }
+a { color: var(--blue); }
+a:focus-visible { outline: 3px solid #1465cb; outline-offset: 4px; }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { line-height: 1.15; margin: 0 0 .65em; }
+h1 { font-size: clamp(2.25rem, 5.7vw, 4.25rem); letter-spacing: -.055em; }
+h2 { font-size: clamp(1.55rem, 3vw, 2.15rem); letter-spacing: -.025em; }
+h3 { font-size: 1.12rem; }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+.wrap { width: min(100% - 2rem, 64rem); margin-inline: auto; }
+.hero { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: clamp(1.25rem, 5vw, 4rem); align-items: center; padding-block: clamp(1.5rem,5vw,3.5rem); }
+.app-icon { width: 4rem; height: 4rem; border-radius: .95rem; margin-bottom: 1rem; }
+.kicker { color: var(--muted); font-weight: 600; }
+.summary { font-size: clamp(1.05rem, 2.5vw, 1.24rem); max-width: 34ch; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem 1rem; margin: 1.3rem 0 .85rem; }
+.appstore { display: inline-block; padding: .65rem .9rem; border-radius: .65rem; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 650; }
+.privacy-link { display: inline-block; padding: .45rem 0; }
+.hero-shot { margin: 0; width: min(100%, 14.5rem); justify-self: center; }
+.hero-shot img, .gallery img { border-radius: .85rem; border: 1px solid var(--line); }
+.panel { padding: clamp(1rem, 4vw, 2.25rem); margin-bottom: 1.25rem; background: var(--paper); border: 1px solid var(--line); border-radius: 1rem; }
+.gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.gallery figure { margin: 0; min-width: 0; }
+.gallery img { width: 100%; }
+.gallery figcaption { color: var(--muted); margin: .4em 0 0; font-size: .9rem; font-weight: 600; }
+.features { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; }
+.fitment { padding: 1rem; margin-top: 1.4rem; border-left: .25rem solid #154f9b; background: #eef4ff; }
+#privacy-policy { scroll-margin-top: 1rem; overflow-wrap: anywhere; }
+#privacy-policy h3 { margin-top: 1.15rem; }
+footer { text-align: center; color: var(--muted); padding: .25rem 0 1.5rem; }
+@media (max-width: 650px) {
+ .hero, .features { grid-template-columns: 1fr; }
+ .hero-shot { width: min(62%, 12.5rem); }
+ .gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
 }
-#splash {
-	min-height: min(46rem, 100svh);
-	width: 100%;
-	display: table;
-	table-layout: fixed;
-	max-width: 700px;
-	margin: auto;
-	position: relative;
-}
-@media screen and (min-width: 700px) {
-	#splash > div {
-		display: table-cell;
-		vertical-align: middle;
-		padding: 1em;
-		height: 100%;
-	}
-	#splash #left {
-		text-align: right;
-	}
-	#splash #right {
-		text-align: left;
-	}
-	#splash .iphone {
-		width: 288px;
-		height: 576px;
-	}
-	#screenshots img {
-		max-width: 200px;
-	}
-}
-@media screen and (max-width: 699px) {
-	#splash { min-height: 0; padding-bottom: 1rem; }
-	#splash .iphone {
-		width: 192px;
-		height: 384px;
-		display: inline-block;
-	}
-	#splash #left {
-		padding: 10px;
-	}
-	#screenshots img {
-		max-width: 100px;
-	}
-}
-.appstore {
-	display: inline-block;
-	background: #1b1b1f;
-	color: #fff;
-	border-radius: 8px;
-	padding: 0.55rem 0.8rem;
-}
-.privacy-link {
-	display: inline-block;
-	padding: 0.5rem;
-}
-#privacy-policy {
-	box-sizing: border-box;
-	max-width: 600px;
-	width: 90%;
-	margin: 1rem auto 2rem;
-	padding: clamp(1rem, 4vw, 2rem);
-	text-align: left;
-	background: #fff;
-	border: 1px solid #cdcdd2;
-	border-radius: 12px;
-	overflow-wrap: anywhere;
-}
-#privacy-policy h2 { margin-top: 0; }
-.iphone {
-	background: #1b1b1f;
-	border-radius: 18px;
-	overflow: hidden;
-	position: relative;
-	width: 720px;
-	height: 1440px;
-}
-.iphone img {
-	position: absolute;
-	top: 4%;
-	left: 4%;
-	width: 92%;
-	height: 92%;
-	object-fit: contain;
-}
-h1, h2, h3, h4, h5, h6 {
-	font-family: sans-serif;
-	font-weight: normal;
-}
-#icon-row {
-	margin: 30px;
-	margin-top: 40px;
-	margin-bottom: 80px;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-	position: relative;
-}
-#icon-row #icon-container {
-	position: absolute;
-	width: 80px;
-	height: 80px;
-	left: 50%;
-	top: 50%;
-	margin-left: -50px;
-	margin-top: -50px;
-	border: 10px solid #f4f4f5;
-}
-#icon-row img {
-	width: 100%;
-	border-radius: 19px;
-	box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
-}
-#description {
-	margin: auto;
-	width: 90%;
-	max-width: 600px;
-}
-#screenshots {
-	margin-bottom: 2em;
-}
-#screenshots img {
-	border: 1px solid white;
-	box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
-	margin: 1em;
-}
-#description {
-	white-space: pre-wrap;
-}
-#description { overflow-wrap: anywhere; }
-footer { padding: 1rem; }
 </style>
 </head>
 <body>
-<div id="content">
+<main class="wrap">
+<header class="hero">
+ <div>
+  <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0d/af/63/0daf638e-4015-58e5-3953-f1cd0f3d75e4/Placeholder.mill/200x200Icon.ApSiOS01-75.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0d/af/63/0daf638e-4015-58e5-3953-f1cd0f3d75e4/Placeholder.mill/200x200Icon.ApSiOS01-75.webp 1x, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0d/af/63/0daf638e-4015-58e5-3953-f1cd0f3d75e4/Placeholder.mill/400x400Icon.ApSiOS01-75.webp 2x" width="64" height="64" alt="">
+  <h1>Tire Size Calculator</h1>
+  <p class="kicker">Cars, LT, Moto &amp; Weight</p>
+  <p class="summary">Compare tires for cars, light trucks, and motorcycles. See what changes when you change tire size or swap wheels.</p>
+  <div class="actions"><a class="appstore" href="https://apps.apple.com/us/app/tire-size-calculator/id599384920">View on the App Store</a><a class="privacy-link" href="#privacy-policy">Privacy Policy</a></div>
+  <p class="kicker">For iPhone and iPad. Pay once, with no ads, subscriptions, or data collection.</p>
+ </div>
+ <figure class="hero-shot"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/e6/1c/15e61c34-97bd-be09-4083-41515ccad061/01-size-systems.png/300x650bb.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/e6/1c/15e61c34-97bd-be09-4083-41515ccad061/01-size-systems.png/300x650bb.webp 300w, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/e6/1c/15e61c34-97bd-be09-4083-41515ccad061/01-size-systems.png/600x1300bb.webp 600w" sizes="(max-width: 650px) 200px, 232px" width="300" height="650" alt="Passenger and light-truck tire size comparison" decoding="async" fetchpriority="high"></figure>
+</header>
 
-<div id="splash">
-	<div id="left">
-		<h1>Tire Size Calculator</h1>
-		<p>Compare tire and wheel specs conveniently and get recommendations for tire and wheel upgrades.</p>
-		<a class="appstore" href="https://apps.apple.com/us/app/tire-size-calculator/id599384920?uo=4">View on the App Store</a>
-		<p><a class="privacy-link" href="#privacy-policy">Privacy Policy</a></p>
-	</div>
-	<div id="right">
-		<div class="iphone">
-			<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/bb/3f/a8/bb3fa85c-c740-44a8-c38f-33e21bce57fa/mzl.ephkmhuy.png/392x696bb.png" alt="Tire Size Calculator app preview">
-		</div>
-	</div>
-</div>
+<section class="panel" aria-labelledby="screenshots-title">
+ <h2 id="screenshots-title">App Store screenshots</h2>
+ <div class="gallery">
+		<figure><a href="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/e6/1c/15e61c34-97bd-be09-4083-41515ccad061/01-size-systems.png/600x1300bb.webp"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/e6/1c/15e61c34-97bd-be09-4083-41515ccad061/01-size-systems.png/300x650bb.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/e6/1c/15e61c34-97bd-be09-4083-41515ccad061/01-size-systems.png/300x650bb.webp 300w, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/e6/1c/15e61c34-97bd-be09-4083-41515ccad061/01-size-systems.png/600x1300bb.webp 600w" sizes="(max-width: 430px) 42vw, 270px" width="300" height="650" alt="Passenger and light-truck tire size comparison" decoding="async" loading="lazy"></a><figcaption>Tire size formats</figcaption></figure>
+		<figure><a href="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9b/57/77/9b577733-6066-51e8-eeb7-62fbd64f873e/02-motorcycle.png/600x1300bb.webp"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9b/57/77/9b577733-6066-51e8-eeb7-62fbd64f873e/02-motorcycle.png/300x650bb.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9b/57/77/9b577733-6066-51e8-eeb7-62fbd64f873e/02-motorcycle.png/300x650bb.webp 300w, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9b/57/77/9b577733-6066-51e8-eeb7-62fbd64f873e/02-motorcycle.png/600x1300bb.webp 600w" sizes="(max-width: 430px) 42vw, 270px" width="300" height="650" alt="Motorcycle tire format selection and comparison" decoding="async" loading="lazy"></a><figcaption>Motorcycle sizes</figcaption></figure>
+		<figure><a href="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c9/eb/61/c9eb615d-5c33-f208-8d52-4bef117c7d05/03-weight-inertia.png/600x1300bb.webp"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c9/eb/61/c9eb615d-5c33-f208-8d52-4bef117c7d05/03-weight-inertia.png/300x650bb.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c9/eb/61/c9eb615d-5c33-f208-8d52-4bef117c7d05/03-weight-inertia.png/300x650bb.webp 300w, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c9/eb/61/c9eb615d-5c33-f208-8d52-4bef117c7d05/03-weight-inertia.png/600x1300bb.webp 600w" sizes="(max-width: 430px) 42vw, 270px" width="300" height="650" alt="Four-wheel weight and rotational inertia estimates" decoding="async" loading="lazy"></a><figcaption>Weight and inertia</figcaption></figure>
+		<figure><a href="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d7/f0/5c/d7f05ce3-2cd1-3ced-e7cc-cf1e8646b72d/04-speed-impact.png/600x1300bb.webp"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d7/f0/5c/d7f05ce3-2cd1-3ced-e7cc-cf1e8646b72d/04-speed-impact.png/300x650bb.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d7/f0/5c/d7f05ce3-2cd1-3ced-e7cc-cf1e8646b72d/04-speed-impact.png/300x650bb.webp 300w, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d7/f0/5c/d7f05ce3-2cd1-3ced-e7cc-cf1e8646b72d/04-speed-impact.png/600x1300bb.webp 600w" sizes="(max-width: 430px) 42vw, 270px" width="300" height="650" alt="Vehicle speed and speedometer difference for two tire sizes" decoding="async" loading="lazy"></a><figcaption>Speedometer impact</figcaption></figure>
+		<figure><a href="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/9d/9b/019d9bc8-9980-c4b4-6a79-90c3de9a3687/05-alternatives.png/600x1300bb.webp"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/9d/9b/019d9bc8-9980-c4b4-6a79-90c3de9a3687/05-alternatives.png/300x650bb.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/9d/9b/019d9bc8-9980-c4b4-6a79-90c3de9a3687/05-alternatives.png/300x650bb.webp 300w, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/9d/9b/019d9bc8-9980-c4b4-6a79-90c3de9a3687/05-alternatives.png/600x1300bb.webp 600w" sizes="(max-width: 430px) 42vw, 270px" width="300" height="650" alt="Suggested replacement sizes for a car or light truck" decoding="async" loading="lazy"></a><figcaption>Size alternatives</figcaption></figure>
+		<figure><a href="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/76/b3/8a/76b38ab1-7fb2-6336-509a-44b545a200d7/06-size-guide.png/600x1300bb.webp"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/76/b3/8a/76b38ab1-7fb2-6336-509a-44b545a200d7/06-size-guide.png/300x650bb.webp" srcset="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/76/b3/8a/76b38ab1-7fb2-6336-509a-44b545a200d7/06-size-guide.png/300x650bb.webp 300w, https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/76/b3/8a/76b38ab1-7fb2-6336-509a-44b545a200d7/06-size-guide.png/600x1300bb.webp 600w" sizes="(max-width: 430px) 42vw, 270px" width="300" height="650" alt="In-app explanations of supported tire formats and limits" decoding="async" loading="lazy"></a><figcaption>Size Guide</figcaption></figure>
+ </div>
+</section>
 
+<section class="panel" aria-labelledby="description">
+ <h2 id="description">What you can compare</h2>
+ <div class="features">
+  <div><h3>Tire sizes and formats</h3><p>Compare passenger and light-truck metric sizes from 125 to 405 mm wide with profiles from 20 to 85. The calculator also handles legacy full-profile sizes, applicable 82-series equivalents, and flotation sizes entered by diameter, width, and rim size. Motorcycle and ATV/UTV formats include metric, inch, and alphabetic designations where supported, with rim-code and construction distinctions.</p></div>
+  <div><h3>Wheel weight and acceleration</h3><p>For cars and light trucks, enter the tire and wheel weights, vehicle weight, peak torque, and 0–60 time. TireCalc estimates the change in total mass and rotational inertia across all four wheels, then gives a range of equivalent vehicle weights during acceleration based on how that mass might be distributed.</p></div>
+  <div><h3>Measurements and speed</h3><p>Compare diameter, circumference, section width, sidewall height, load index, speed rating, and actual speed when the speedometer reads 60 or 100. Switch between imperial and metric units, and use scaled full-circle or split-circle diagrams to see how the tires differ.</p></div>
+  <div><h3>Replacement size options</h3><p>Set how much rim diameter, section width, and circumference can change. Then pick a suggested car or light-truck size and compare it with your current setup. The built-in Size Guide explains supported formats and their limits.</p></div>
+ </div>
+ <p class="fitment"><strong>Check fitment before buying or mounting.</strong> A recognized size does not establish vehicle compatibility. Verify load, speed, rim, clearance, and manufacturer requirements with the vehicle and tire manufacturers and a qualified tire professional. Do not infer an inch measurement from a motorcycle rim code.</p>
+</section>
+
+<div class="panel">
 <section id="privacy-policy" aria-labelledby="privacy-title">
 	<h2 id="privacy-title">Privacy Policy</h2>
 	<h3>Tire Size Calculator for iPhone and iPad</h3>
@@ -174,100 +94,8 @@ footer { padding: 1rem; }
 	<h3>Privacy questions</h3>
 	<p>Contact Cheng Fan at <a href="mailto:intofansoft@gmail.com">intofansoft@gmail.com</a>.</p>
 </section>
-
-<div id="icon-row">
-	<div id="icon-container">
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/83/7e/6c/837e6c9b-5dc9-0b95-bd65-9659438745aa/AppIcon-0-0-1x_U007emarketing-0-0-0-9-85-220.png/512x512bb.jpg" alt="">
-	</div>
 </div>
-
-<div id="screenshots">
-
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/0b/87/f8/0b87f8b9-09ad-0de7-ef6d-43268fe7431b/mzl.bbacffer.png/392x696bb.png" alt="" loading="lazy">
-
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/c7/7a/65/c77a6520-7743-e3d2-cae1-fe28ab7647a2/mzl.xcygvwfw.png/392x696bb.png" alt="" loading="lazy">
-
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/53/63/5e/53635e9d-58c8-a666-abc3-b2137d7f977a/pr_source.png/392x696bb.png" alt="" loading="lazy">
-
-		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/8d/66/ef/8d66ef86-2102-ed2d-126b-5b03d071b81c/mzl.kjgvafyk.png/392x696bb.png" alt="" loading="lazy">
-
-</div>
-
-
-
-<p id="description">Compare tire and wheel specs conveniently and get recommendations for tire and wheel upgrades. Support both Imperial and Metric units.
-What makes this app standing out from the crowd: calculate approximate equivalent sprung (chassis) weight difference after changing to a new set of tire+wheel.
-http://www.tirerack.com/wheels/tech/techpage.jsp?techid=108
-
-Experienced car mod drivers know that a light weight tire+wheel package with good quality is always a great mod investment to have. This app helps to quantify the performance improvement that can be achieved by such investment: the equivalent sprung weight deduction with a set of 4 lightweight new tires and rims.
-
-This app helps you to choose upgrade tire and wheel safely and wisely, because Safety and Performance both matter!
-
-This is an universal app that works great and responsively on both iPhone/iPod Touch and iPad.
-NO need to pay twice for the same app!
-
-Tire Size Calculator is an app that gives you concise info and intuitive interactive ways to help you:
-
-1. Get recommended upgrade/replacement tire sizes, with adjustable difference variables (rim size diff./section width diff./circumference diff.) between new tire and old tire.
-
-2. Calculate tire sizes, and compare tires with detailed specs, in either Imperial or Metric units. See the visual differences between tires using the scaled tire graph with two display modes: side-by-side as two complete tire circles, or use half of each tire to constitute one tire circle.
-
-3. Calculate approximate equivalent car chassis (sprung) weight differences after change to the replacement/upgrade tire+wheel, using the following data: car weight, engine max torque, car 0-60 mph/0-96.6 km/h time, tire/wheel sizes/weights, in either Imperial or Metric units.
-
-Detailed description:
-
-1. Get recommended upgrade/replacement tire sizes, with the following adjustable difference variables between new tire and old tire:
-
-• Rim diameter difference (-3" ~ +3")
-• Section width difference (-30 mm ~ +30mm)
-• Tolerable tire circumference difference (-3% ~ +3%)
-
-You can conveniently choose one of the recommended tires to compare to the old tire by selecting the tire from the list.
-
-2. Calculate tire sizes, and compare tires with the following specs, in either Imperial or Metric units:
-
-• Section Width (145 mm ~ 395 mm)
-• Aspect Ratio (20 ~ 85)
-• Rim Diameter (10" ~ 30")
-• Load Index (60 ~125)
-• Speed Rating (L ~ Y)
-• Suitable Rim Widths
-• Section Height
-• Tire Overall Diameter
-• Tire Circumference
-• Actual Speed when speedometer reads 60
-• Actual Speed when speedometer reads 100
-• Scaled visual graphs of the old tire and new tire
-
-You can use the scaled tire graph to see the visual differences in tire section height (sidewall height), tire diameter, rim diameter, and circumferences, in the two modes:
-
-• Side by Side: two tires displayed as two whole circles next to each other, great for seeing overall visual appearance differences.
-• Half Circles: old tire as the left half, new tire as the right half, combined to form one circle, great for seeing differences in tire section height, tire diameter, and rim diameter.
-
-Tap the tire graph to toggle between the two modes.
-
-3. Calculate approximate equivalent car chassis (sprung) weight differences after change to the replacement/upgrade tire+wheel, in either Imperial or Metric units, using the following data:
-
-• Car Weight (with old tire+wheel)
-• Engine Max Torque
-• Car 0-60 mph/0-96.6 km/h time (with old tire+wheel)
-• Old Tire/Wheel Sizes
-• New Tire/Wheel Sizes
-• Old Tire/Wheel Weights
-• New Tire/Wheel weights
-
-Colors of the specs table cells indicate the compatibility of the new tire in that spec:
-
-• No color: compatible
-• Green: improved
-• Yellow: tolerable
-• Red: not compatible</p>
-
-<p>
-	<a class="appstore" href="https://apps.apple.com/us/app/tire-size-calculator/id599384920?uo=4">View on the App Store</a>
-</p>
-
-<footer><p>© Cheng Fan</p></footer>
-</div>
+</main>
+<footer class="wrap"><p>© Cheng Fan</p></footer>
 </body>
 </html>
